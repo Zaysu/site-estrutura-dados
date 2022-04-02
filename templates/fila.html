@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% block content%}
+
+    <h1 class="display-4"> <strong> Fila </strong> </h1>
+    <p class="lead">
+        <div class="container">
+         <strong> Operações sobre Pilhas:</strong> <br>
+         <strong>init/clear()</strong> – inicializa/limpa a pilha;<br>
+         <strong>isEmpty()</strong> – verifica se a pilha está vazia;<br>
+         <strong> push(elem)</strong> – coloca o elemento no topo da pilha;<br>
+         <strong>pop()</strong> – toma o elemento mais alto da pilha;<br>
+         <strong>show()</strong> – imprime o conteúdo da fila<br> 
+         <strong>showp()</strong> – exibe o conteúdo dos ponteiros auxiliares<br> 
+                Uma fila é simplesmente uma lista linear de informações, que é
+        acessada na ordem primeiro a entrar, primeiro a sair, também
+        chamada de FIFO (First In, First Out).<br>
+         Isto é, o primeiro item a ser colocado na fila é o primeiro item a ser
+        retirado, o segundo colocado é o segundo a ser recuperado e assim
+        por diante.<br>
+         Essa é a única forma de armazenar e recuperar em uma fila; não é
+        permitido o acesso randômico a nenhum item específico.<br>
+        </div>                 
+    </p>
+
+    <div class="container">
+        <div class="row">
+            <div   div class="col-md-12">
+            
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                      <h1 class="display-4"> init()</h1>
+                      
+                     <code>
+                        <pre class=" lead pre">
+                            def init():
+                                global fila, spos, rpos, MAX
+
+                                MAX = 5
+                                fila = []
+                                spos = 0
+                                rpos = 0
+
+                                return
+                            
+                        </pre> 
+                    </code>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> Pop()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+                              
+                                def pop():
+                                    global rpos, fila
+
+                                    if rpos == spos:
+                                        print("Fila Vazia!!")
+                                        return
+
+                                    rpos = rpos + 1
+                                    return fila[rpos-1]
+                                
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> push()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def push(valor):
+
+                                    global spos, fila
+                                    if spos == MAX:
+                                        print("Fila cheia!!!")
+                                        return
+
+                                    fila.append(valor)
+                                    spos = spos+1
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> show()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def show():
+                                    global spos, rpos, fila
+                                    if rpos == spos:
+                                        print("Fila vazia!!")
+                                        return
+
+                                    for i in range(rpos, spos):
+                                        print(fila[i])
+
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> showp()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def showp():
+                                    print("rpos = ", rpos," spos = ", spos," MAX = ", MAX)
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> #Inicia Funções</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                init()
+                                showp()
+                                push(10)
+                                showp()
+                                push(20)
+                                showp()
+                                push(30)
+                                showp()
+                                show()
+                                pop()
+                                showp()
+                                push(40)
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        
+
+{% endblock %}

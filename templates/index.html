@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block content%}
+
+    <h1 class="display-4"> <strong> Pilha </strong> </h1>
+    <p class="lead">
+        <div class="container">
+         <strong> Operações sobre Pilhas:</strong> <br>
+         <strong>init/clear()</strong> – inicializa/limpa a pilha;<br>
+         <strong>isEmpty()</strong> – verifica se a pilha está vazia;<br>
+         <strong> push(elem)</strong> – coloca o elemento no topo da pilha;<br>
+         <strong>pop()</strong> – toma o elemento mais alto da pilha;<br>
+         <strong>topEl()</strong> – retorna o elemento mais alto da pilha sem removê-lo.<br> 
+         Uma pilha é uma estrutura de dados que pode ser acessada somente
+                                        por uma de suas extremidades para armazenar e recuperar dados.
+                                        Por essa razão, uma pilha é chamada de estrutura LIFO (last in/first out). 
+        </div>                 
+    </p>
+
+    <div class="container">
+        <div class="row">
+            <div   div class="col-md-12">
+            
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                      <h1 class="display-4"> init()</h1>
+                      
+                     <code>
+                        <pre class=" lead pre">
+                          
+                            def inicializa():
+                                global pilha, ponteiro
+                                pilha = []
+                                ponteiro = -1
+                                return
+                            
+                        </pre> 
+                    </code>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> Pop()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+                              
+                                def pop():
+                                    global pilha, ponteiro
+
+                                if ponteiro < 0:
+                                    print("\nA pilha já está vazia")
+                                    return None
+                                else:
+                                    valor = pilha[ponteiro]
+                                    del(pilha[ponteiro])
+                                    ponteiro = ponteiro - 1
+                                    return valor 
+                                
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> push()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def push(valor):
+                                    global pilha, ponteiro
+                                    pilha.append(valor)
+                                    ponteiro = ponteiro + 1
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> show()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def show():
+                                    global pilha
+                                    print(pilha)
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        
+
+{% endblock %}

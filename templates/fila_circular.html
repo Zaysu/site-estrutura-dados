@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% block content%}
+
+    <h1 class="display-4"> <strong> Fila Circular </strong> </h1>
+    <p class="lead">
+        <div class="container">
+         <strong> Operações sobre Pilhas:</strong> <br>
+         <strong>init/clear()</strong> – inicializa/limpa a pilha;<br>
+         <strong>isEmpty()</strong> – verifica se a pilha está vazia;<br>
+         <strong> push(elem)</strong> – coloca o elemento no topo da pilha;<br>
+         <strong>pop()</strong> – toma o elemento mais alto da pilha;<br>
+         <strong>show()</strong> – imprime o conteúdo da fila<br> 
+         <strong>showp()</strong> – exibe o conteúdo dos ponteiros auxiliares<br> <br>
+         Se refletirmos um pouco sobre uma estrutura de fila, é possível
+         conceber algumas melhorias;<br>
+          Ao invés de ter uma parada do programa, quando o limite do vetor
+         (lista) é atingido, poderíamos fazer os ponteiros spos e rpos voltarem
+         ao início, utilizando assim as posições que já estão liberadas.<br>
+          Desse modo, a Fila Circular se torna uma estrutura dinâmica.<br><br>
+         <strong>OBS.</strong>: Vale ressaltar que essa é a única estrutura que foi necessário
+         fazer a inicialização preenchendo todas as posições livres com valores
+         <strong>None</strong>, nessa proposta do algoritmo para <strong>Python</strong>.
+        </div>                 
+    </p>
+
+    <div class="container">
+        <div class="row">
+            <div   div class="col-md-12">
+            
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                      <h1 class="display-4"> init()</h1>
+                      
+                     <code>
+                        <pre class=" lead pre">
+
+                            def init(maximo):
+                                global fila, spos, rpos, MAX
+
+                                MAX = maximo
+                                fila = []
+                                for i in range(0,MAX):
+                                    fila.append(None)
+
+                                spos = 0
+                                rpos = 0
+                                return
+                            
+                        </pre> 
+                    </code>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> Pop()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+                              
+                                def pop():
+                                    global fila, rpos
+
+                                    if (rpos == spos and fila[rpos]==None):
+                                        print("Fila vazia!!!")
+                                        return
+
+                                    if rpos + 1 == MAX:
+                                        
+                                    rpos = 0
+                                    valor = fila[rpos]
+                                    fila[rpos] = None
+                                    rpos = rpos + 1
+                                    return valor
+                                
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> push()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def push(valor):
+                                    global fila, spos
+
+                                    if (rpos == spos and fila[rpos] != None) or (spos + 1 == MAX a
+                                    nd rpos == 0):
+                                        print("Fila cheia!!!")
+                                        return
+
+                                    if (spos + 1 == MAX) and (rpos != 0):
+                                        spos = 0
+
+                                    fila[spos] = valor
+                                    spos = spos + 1
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> show()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def show():
+                                    for i in range(0,MAX-1):
+                                        print(fila[i])
+                                    return None
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> showp()</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                def showp():
+                                    print("rpos = ", rpos," spos = ", spos,  " MAX = ", MAX)
+                                    return
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div   div class="col-md-12">
+                
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-4"> #Inicia Funções</h1>
+                          
+                         <code>
+                            <pre class=" lead pre">
+
+                                init(6)
+                                push(10)
+                                push(20)
+                                push(30)
+                                push(40)
+                                push(50)
+                                pop()
+                                pop()
+                                show()
+                                showp()
+                                input()
+                                push(60)
+                                show()
+                                showp()
+                            
+                            </pre> 
+                        </code>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        
+
+{% endblock %}
